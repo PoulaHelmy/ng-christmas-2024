@@ -1,0 +1,106 @@
+<div class="card-container">
+  <div class="card-content">
+    <header class="card-title">
+      <!--      <img-->
+      <!--        [src]="data.content?.author?.avatarUrl"-->
+      <!--        alt="{{ data.content?.author?.name }} thoughts about Angular in 2023!"-->
+      <!--      />-->
+      <div class="card-header-card-wrapper">
+        <div class="card-header-card">
+          <ng-template [type]="headerCard1" xmasCalendarCardFactory></ng-template>
+        </div>
+      </div>
+      <div class="card-header-details">
+        <h1>{{ cardTitle}}</h1>
+      </div>
+
+      <div class="card-header-card-wrapper">
+        <div class="card-header-card">
+          <ng-template [type]="headerCard2" xmasCalendarCardFactory></ng-template>
+        </div>
+      </div>
+    </header>
+    <div class="card-body" dir="rtl">
+      <ng-container *ngIf="cardData">
+        <ng-container *ngIf="cardData.type === 'video'">
+          <iframe
+            [src]="cardData.value | safeYoutubeUrl"
+            allowfullscreen
+            frameborder="0"
+            height="360"
+            width="640"
+          ></iframe>
+        </ng-container>
+        <ng-container *ngIf="cardData.type === 'image'">
+          <div class="image-container">
+            <img [src]="cardData.value" alt="">
+          </div>
+        </ng-container>
+        <ng-container *ngIf="cardData.type === 'verse'">
+          <div class="verse-card">
+            <p class="verse">{{cardData.value}}</p>
+            <p class="ref">{{cardData.ref}}</p>
+          </div>
+        </ng-container>
+        <ng-container *ngIf="cardData.type === 'pray'">
+          <div class="prays-card">
+            <p class="title">{{cardData.value}}</p>
+            <ng-container *ngIf="cardData.prays && cardData.prays.length > 0">
+              <p *ngFor="let pray of cardData.prays">{{pray}}</p>
+            </ng-container>
+          </div>
+        </ng-container>
+      </ng-container>
+
+
+      <!--      @if (cardData) {-->
+      <!--      @if (cardData.type === 'video') {-->
+      <!--      <iframe-->
+      <!--        [src]="cardData.value | safe: 'resourceUrl'"-->
+      <!--        allowfullscreen-->
+      <!--        frameborder="0"-->
+      <!--        height="360"-->
+      <!--        width="640"-->
+      <!--      ></iframe>-->
+      <!--      } @else if (cardData.type === 'image') {-->
+      <!--      <img [src]="cardData.value" alt="">-->
+      <!--      } @else if (cardData.type === 'verse') {-->
+      <!--      <div class="verse-card">-->
+      <!--        <p>{{cardData.value}}</p>-->
+      <!--        <p>{{cardData.ref}}</p>-->
+      <!--      </div>-->
+      <!--      } @else if (cardData.type === 'pray') {-->
+      <!--      <div class="prays-card">-->
+      <!--        <p>{{cardData.value}}</p>-->
+      <!--        @if (cardData.prays) {-->
+      <!--        <p *ngFor="let pray of cardData.prays">{{pray}}</p>-->
+      <!--        }-->
+      <!--      </div>-->
+      <!--      }-->
+      <!--      @else {-->
+      <!--      <p>No content provided</p>-->
+      <!--      }-->
+      <!--      }-->
+    </div>
+    <!--          <div [innerHTML]="data.content?.descriptionHtml" class="embedded-content"></div>-->
+
+    <!--  <div class="card-actions">-->
+    <!--    @if (data.content?.author?.brandImageUrl && data.content?.author?.brandExternalUrl) {-->
+    <!--    <span>Resources:</span>-->
+    <!--    <a class="no-outline" [href]="data.content?.author?.brandExternalUrl" target="_blank">-->
+    <!--      <img-->
+    <!--        [src]="data.content?.author?.brandImageUrl"-->
+    <!--        alt="{{ data.content?.author?.name }} brand"-->
+    <!--        />-->
+    <!--      </a>-->
+    <!--    } @else if (data.content?.author?.brandImageUrl) {-->
+    <!--    <img-->
+    <!--      [src]="data.content?.author?.brandImageUrl"-->
+    <!--      alt="{{ data.content?.author?.name }} brand"-->
+    <!--      />-->
+    <!--    }-->
+    <!--    <button class="button" tabindex="0" type="button">Close</button>-->
+    <!--  </div>-->
+  </div>
+</div>
+

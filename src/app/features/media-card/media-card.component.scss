@@ -1,0 +1,211 @@
+@import '../../../../src/assets/scss/scrol-bar';
+
+.card-container {
+  width: 100%;
+  height: calc(100% - 60px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.card-content {
+  width: 75vw;
+  background-color: var(--white);
+  padding: 1rem;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.card-title {
+  display: flex;
+  gap: 1rem;
+  justify-content: space-evenly;
+}
+
+.card-title h1,
+.card-title a {
+  color: #cc0000;
+  font-size: clamp(1rem, 2vw + 1.1rem, 2.5rem);
+}
+
+.card-header-details a:hover {
+  opacity: 0.6;
+}
+
+.card-header-details {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.card-title img {
+  width: 4rem;
+  aspect-ratio: 1;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+.card-header-card-wrapper {
+  border-radius: 0.5rem;
+  display: none;
+  justify-content: flex-end;
+}
+
+.card-header-card-wrapper > .card-header-card {
+  width: 8rem;
+  height: 8rem;
+  border-radius: 50%;
+  overflow: hidden;
+}
+
+@media only screen and (min-width: 576px) {
+  .card-content {
+    width: 75vw;
+    max-width: 700px;
+    height: unset;
+    min-height: 35vh;
+    max-height: 85vh;
+  }
+
+  .card-header-card-wrapper {
+    display: flex;
+  }
+
+  .card-title img {
+    width: 8rem;
+  }
+}
+
+.card-body {
+  font-size: 0.875rem;
+  font-family: 'Inter Tight', sans-serif;
+  color: var(--gray-700);
+  display: flex;
+  justify-content: center;
+  overflow-y: auto;
+  scroll-behavior: smooth;
+  max-height: calc(100vh - 400px);
+  @include customize-scroll();
+
+}
+
+.embedded-content {
+  font-size: 1rem;
+  line-height: 1.4;
+}
+
+.card-body::before {
+  content: '';
+  display: block;
+  border-radius: 0.75rem;
+  background: repeating-linear-gradient(
+      -45deg,
+      #f1faee 0,
+      #f1faee 0.5rem,
+      #e63946 0.5rem,
+      #e63946 1rem
+  );
+  background-size: 1.44rem 1.44rem;
+  box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.5);
+  position: absolute;
+  z-index: -1;
+  top: -0.5rem;
+  right: -0.5rem;
+  bottom: -0.5rem;
+  left: -0.5rem;
+}
+
+.button {
+  background-color: #cc0000;
+  color: #ffffff;
+  border: 2px solid #cc0000;
+  border-radius: 5px;
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  transition: background-color 0.1s;
+  outline-color: lightcoral;
+}
+
+.button:hover {
+  background-color: #ffffff;
+  color: #cc0000;
+}
+
+div.card-actions {
+  display: flex;
+  align-items: center;
+
+  button {
+    margin-left: auto;
+  }
+
+  img {
+    margin-right: auto;
+    height: 60px;
+    object-fit: fill;
+    padding: 0 0.5rem;
+  }
+}
+
+.no-outline {
+  outline: none;
+}
+
+.no-underline {
+  text-decoration: none;
+}
+
+
+.image-container {
+  img {
+    height: 400px;
+    max-height: 100%;
+    width: 100%;
+    border-radius: 0.5rem;
+  }
+}
+
+.verse-card {
+  font-size: 2rem;
+  background: #eee;
+  padding: 1rem;
+  border-radius: 1rem;
+  text-align: center;
+
+  .verse {
+
+  }
+
+  .ref {
+
+  }
+}
+
+
+.prays-card {
+  font-size: 1.5rem;
+  text-align: start;
+  padding: 0 0.5rem 0.5rem 0.5rem;
+  background: #eee;
+  border-radius: 0.6rem;
+  height: 100%;
+
+  .title {
+    font-size: 1.8rem;
+    font-weight: bold;
+    text-align: center;
+    position: sticky;
+    top: 0;
+    background: #ccc;
+    /* width: 100%; */
+    border-radius: 0 0 1rem 1rem;
+    margin: 0.5rem;
+    padding: 0.5rem;
+  }
+}
